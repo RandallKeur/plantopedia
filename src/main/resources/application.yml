@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: webuser
+    password: aSecretPass
+    hikari:
+      schema: plant
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    database: postgresql
+    open-in-view: false
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  liquibase:
+    change-log: classpath:db/changelog/master.yml

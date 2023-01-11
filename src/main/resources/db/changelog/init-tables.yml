@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create PLANT_TYPES table
+      author: RCK
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: PLANT_TYPE_ID
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: PK_PLANT_TYPE
+                    nullable: false
+              - column:
+                  name: PLANT_TYPE_NAME
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+            schemaName: plant
+            tableName: PLANT_TYPES
+  - changeSet:
+      id: Create PROFILES tables
+      author: RCK
+      changes:
+        - createTable:
+            tableName: PROFILES
+            columns:
+              - column:
+                  name: PRO_ID
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: PK_PROFILES
+                    nullable: false
+              - column:
+                  name: PRO_COMMON_NAME
+                  type: varchar(100)
+              - column:
+                  name: PRO_GENUS_NAME
+                  type: varchar(100)
+              - column:
+                  name: PRO_DESCRIPTION
+                  type: varchar(4000)
+              - column:
+                  name: PRO_TYPE_ID
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: FK_PROFILES_PLANT_TYPE_ID
+                    references: PLANT_TYPES(PLANT_TYPE_ID)

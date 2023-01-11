@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: Add Sample Data to PLANT_TYPE table
+      author: RCK
+      changes:
+        - insert:
+            tableName: PLANT_TYPES
+            columns:
+              - column:
+                  name: PLANT_TYPE_NAME
+                  value: "Houseplant"
+        - insert:
+            tableName: PLANT_TYPES
+            columns:
+              - column:
+                  name: PLANT_TYPE_NAME
+                  value: "Herb"
+  - changeSet:
+      id: Add more Sample Data to PLANT_TYPES table
+      author: RCK
+      changes:
+        - insert:
+            tableName: PLANT_TYPES
+            columns:
+              - column:
+                  name: PLANT_TYPE_NAME
+                  value: "Perennial"
